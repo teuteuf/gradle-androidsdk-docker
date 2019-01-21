@@ -27,8 +27,9 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 RUN chmod -R 755 .${ANDROID_HOME}/tools/*
 
 # Install Android SDK
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager "platform-tools"
-RUN ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-23"
+RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "platform-tools"
+RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-23"
+RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager "build-tools;28.0.3"
 RUN yes | ${ANDROID_HOME}/tools/bin/sdkmanager --licenses
 
 # Install Gradle
